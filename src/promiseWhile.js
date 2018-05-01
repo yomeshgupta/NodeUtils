@@ -38,7 +38,7 @@ function promiseWhile(condition, action, errorHandler) {
 					.catch(function(err) {
 						var message = err.message || err;
 						console.log(message);
-						if (errorHandler.apply(this, arguments)) {
+						if (errorHandler.apply(this, arguments, err)) {
 							return loop();
 						}
 						return reject([arguments, err]);
