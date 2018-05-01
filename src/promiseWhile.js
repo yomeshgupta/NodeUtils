@@ -38,10 +38,10 @@ function promiseWhile(condition, action, errorHandler) {
 					.catch(function(err) {
 						var message = err.message || err;
 						console.log(message);
-						if (errorHandler.apply(this, arguments, err)) {
+						if (errorHandler.apply(this, arguments)) {
 							return loop();
 						}
-						return reject([arguments, err]);
+						return reject(arguments);
 					});
 			});
 		};
