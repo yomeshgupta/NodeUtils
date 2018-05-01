@@ -41,7 +41,7 @@ function promiseWhile(condition, action, errorHandler) {
 						if (errorHandler.apply(this, arguments)) {
 							return loop();
 						}
-						return reject(arguments);
+						return reject([arguments, err]);
 					});
 			});
 		};
